@@ -9,5 +9,4 @@ public class YYCDPerformanceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(YYCDPerformanceApplication.class, args);
 	}
-
 }

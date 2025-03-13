@@ -1,7 +1,4 @@
-
-
 package YYCD_YYCD.controller;
-
 
 import YYCD_YYCD.domain.Producto;
 //import YYCD_YYCD.service.CategoriaService;

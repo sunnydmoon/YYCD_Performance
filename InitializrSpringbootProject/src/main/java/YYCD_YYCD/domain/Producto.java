@@ -1,6 +1,5 @@
 package YYCD_YYCD.domain;
 
-
 import jakarta.persistence.*;
 import java.io.Serializable;
 import lombok.Data;
