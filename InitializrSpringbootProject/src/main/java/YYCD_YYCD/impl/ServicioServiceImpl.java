@@ -1,6 +1,6 @@
 package YYCD_YYCD.impl;
 
-import YYCD_YYCD.dao.VehiculoDao;
+import YYCD_YYCD.dao.ServicioDao;
 import YYCD_YYCD.domain.Servicio;
 import YYCD_YYCD.service.ServicioService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -13,6 +13,8 @@ public class Servicio {
     private Long id;
     private String nombre; // "Apariencia", "Turbinas", etc.
     private String descripcion;
+    private String imagenUrl; 
+
 
     public Long getId() {
         return id;
