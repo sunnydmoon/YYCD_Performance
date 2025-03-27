@@ -4,166 +4,267 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YYCD_Performance</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Global Styles */
+    * {
       margin: 0;
-      background: #f2f2f2;
+      padding: 0;
+      box-sizing: border-box;
     }
-    header {
-      background: #333;
-      color: #fff;
-    }
-    .nav-bar {
-      display: flex;
-      justify-content: center;
-      background: #444;
-    }
-    .nav-bar a {
-      color: #fff;
-      padding: 15px 20px;
-      text-decoration: none;
-      display: block;
-    }
-    .nav-bar a:hover {
-      background: #555;
-    }
-    .header-content {
-      text-align: center;
-      padding: 20px 0;
-    }
-    .container {
-      padding: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    h2 {
-      color: #333;
-      margin-bottom: 20px;
-    }
-    p {
+    body {
+      background: #121212;
+      font-family: 'Roboto', sans-serif;
+      color: #e0e0e0;
       line-height: 1.6;
     }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #007BFF;
-      color: #fff;
+    a {
       text-decoration: none;
-      border-radius: 4px;
-      margin-top: 10px;
+      color: inherit;
     }
-    /* Sección de Servicios */
-    .servicios-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: space-between;
-    }
-    .servicio {
-      background: #fff;
+    /* Header */
+    header {
+      background: #1e1e1e;
       padding: 20px;
-      flex: 1 1 30%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      border-radius: 4px;
-      text-align: center;
-    }
-    /* Sección de Trabajos Recientes */
-    .trabajos-container {
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+      align-items: center;
       justify-content: space-between;
+      border-bottom: 2px solid #00bdbb;
     }
-    .trabajo {
-      background: #fff;
-      padding: 10px;
-      flex: 1 1 30%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      border-radius: 4px;
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00bdbb;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      margin-left: 20px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav ul li:hover {
+      color: #00bdbb;
+    }
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: url('https://via.placeholder.com/1200x600') no-repeat center/cover;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(18,18,18,0.7);
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+    .hero-content h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #00bdbb;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .cta-button {
+      background: #00bdbb;
+      color: #121212;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background: #00a3a2;
+    }
+    /* Sections */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: #00bdbb;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .section-content {
+      background: #1e1e1e;
+      padding: 20px;
+      border: 1px solid #00bdbb;
+      border-radius: 8px;
+      text-align: justify;
+    }
+    /* Grid for services and works */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #242424;
+      border: 1px solid #00bdbb;
+      border-radius: 8px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
       text-align: center;
     }
-    .trabajo img {
-      max-width: 100%;
-      border-radius: 4px;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 189, 187, 0.3);
     }
+    .card h3 {
+      font-size: 1.4rem;
+      color: #00bdbb;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .card a {
+      display: inline-block;
+      background: #00bdbb;
+      color: #121212;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .card a:hover {
+      background: #00a3a2;
+    }
+    /* Trabajos Recientes */
+    .works img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    /* Footer */
     footer {
-      background: #333;
-      color: #fff;
+      background: #1e1e1e;
       text-align: center;
-      padding: 10px 0;
+      padding: 20px;
+      border-top: 2px solid #00bdbb;
+      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="nav-bar">
-      <a href="index.html">Inicio</a>
-      <a href="cotizar.html">Cotiza</a>
-      <a href="https://wa.me/123456789" target="_blank">WhatsApp</a>
-      <a href="trabajos.html">Trabajos Anteriores</a>
-    </div>
-    <div class="header-content">
-      <h1>YYCD_Performance</h1>
-      <p>Taller de tuning para cualquier tipo de autos</p>
-    </div>
+    <div class="logo">YYCD_Performance</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
   </header>
-
-  <div class="container">
-    <section id="quienes-somos">
-      <h2>Quiénes Somos</h2>
-      <p>En YYCD_Performance nos dedicamos a transformar tu auto en una máquina única. Con años de experiencia y pasión, ofrecemos servicios de tuning para todo tipo de vehículos.</p>
-    </section>
-
-    <section id="servicios">
-      <h2>Nuestros Servicios</h2>
-      <div class="servicios-container">
-        <div class="servicio">
-          <h3>Tuning de Motor</h3>
-          <p>Optimización y ajustes para maximizar la potencia de tu motor.</p>
-          <a href="tuning.html" class="btn">Aprende más</a>
-        </div>
-        <div class="servicio">
-          <h3>Suspensión y Frenos</h3>
-          <p>Mejora la estabilidad y seguridad con ajustes especializados.</p>
-          <a href="suspension.html" class="btn">Aprende más</a>
-        </div>
-        <div class="servicio">
-          <h3>Estética y Accesorios</h3>
-          <p>Personaliza el aspecto de tu auto con detalles únicos y modernos.</p>
-          <a href="estetica.html" class="btn">Aprende más</a>
-        </div>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Car Tuning de Alto Nivel</h1>
+      <p>Transformamos tu auto en una máquina única y potente.</p>
+      <a href="cotizar.html"><button class="cta-button">Cotiza tu Proyecto</button></a>
+    </div>
+  </section>
+  
+  <!-- Quiénes Somos Section -->
+  <section class="container section" id="quienes-somos">
+    <div class="section-title">Quiénes Somos</div>
+    <div class="section-content">
+      <p>
+        En YYCD_Performance, nos especializamos en el tuning de todo tipo de autos, combinando la pasión por el rendimiento y la estética con tecnología de punta. Nuestro equipo se dedica a transformar cada vehículo en una obra de arte sobre ruedas, ofreciendo soluciones personalizadas y de alta calidad para clientes exigentes.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Nuestros Servicios Section -->
+  <section class="container section" id="servicios">
+    <div class="section-title">Nuestros Servicios</div>
+    <div class="grid">
+      <div class="card">
+        <h3>Apariencia</h3>
+        <p>Personalización de la estética exterior de tu auto.</p>
+        <a href="apariencia.html">Aprende más</a>
       </div>
-    </section>
-
-    <section id="trabajos-recientes">
-      <h2>Trabajos Recientes</h2>
-      <div class="trabajos-container">
-        <div class="trabajo">
-          <img src="https://via.placeholder.com/300x200" alt="Proyecto 1">
-          <p>Proyecto 1: Transformación total.</p>
-        </div>
-        <div class="trabajo">
-          <img src="https://via.placeholder.com/300x200" alt="Proyecto 2">
-          <p>Proyecto 2: Ajustes de suspensión y frenos.</p>
-        </div>
-        <div class="trabajo">
-          <img src="https://via.placeholder.com/300x200" alt="Proyecto 3">
-          <p>Proyecto 3: Personalización estética.</p>
-        </div>
+      <div class="card">
+        <h3>Equipamiento</h3>
+        <p>Mejora de componentes y accesorios de alto rendimiento.</p>
+        <a href="equipamiento.html">Aprende más</a>
       </div>
-    </section>
-
-    <section id="cotizar">
-      <h2>Cotiza Tu Proyecto</h2>
-      <p>Solicita una cotización para conocer nuestros servicios y precios.</p>
-      <a href="cotizar.html" class="btn">Cotizar</a>
-    </section>
-  </div>
-
+      <div class="card">
+        <h3>Iluminación</h3>
+        <p>Sistemas avanzados para una conducción segura y estilizada.</p>
+        <a href="iluminacion.html">Aprende más</a>
+      </div>
+      <div class="card">
+        <h3>Turbinas</h3>
+        <p>Aumento de potencia mediante inducción forzada.</p>
+        <a href="turbinas.html">Aprende más</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Trabajos Recientes Section -->
+  <section class="container section" id="trabajos-recientes">
+    <div class="section-title">Trabajos Recientes</div>
+    <div class="grid works">
+      <div class="card">
+        <img src="https://via.placeholder.com/400x300" alt="Proyecto 1">
+        <p>Transformación completa de un sedán.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x300" alt="Proyecto 2">
+        <p>Mejora de rendimiento en auto deportivo.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x300" alt="Proyecto 3">
+        <p>Personalización estética única.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Cotiza tu Proyecto Section -->
+  <section class="container section" id="cotizar">
+    <div class="section-title">Cotiza tu Proyecto</div>
+    <div class="section-content" style="text-align: center;">
+      <p>
+        ¿Listo para transformar tu auto? Solicita una cotización y descubre cómo podemos llevar tu vehículo al siguiente nivel.
+      </p>
+      <br>
+      <a href="cotizar.html"><button class="cta-button">Cotiza Ahora</button></a>
+    </div>
+  </section>
+  
   <footer>
     <p>&copy; 2025 YYCD_Performance. Todos los derechos reservados.</p>
   </footer>

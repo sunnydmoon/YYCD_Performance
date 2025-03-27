@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reviews - YYCD_Performance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #121212;
+      font-family: 'Roboto', sans-serif;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Header */
+    header {
+      background: #1e1e1e;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #00bdbb;
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00bdbb;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      margin-left: 20px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav ul li:hover {
+      color: #00bdbb;
+    }
+    /* Main Title */
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 40px 0 20px 0;
+      color: #00bdbb;
+    }
+    /* Container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    /* Review Form */
+    .review-form {
+      background: #1e1e1e;
+      border: 1px solid #00bdbb;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+    .review-form label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+    .stars {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .stars input {
+      display: none;
+    }
+    .star-label {
+      font-size: 1.8rem;
+      color: #555;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    /* Cambiar color al marcar o hover */
+    .stars input:checked ~ .star-label,
+    .star-label:hover,
+    .star-label:hover ~ .star-label {
+      color: #00bdbb;
+    }
+    .review-form input[type="number"],
+    .review-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background: #242424;
+      color: #e0e0e0;
+    }
+    .review-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .review-form button {
+      background: #00bdbb;
+      color: #121212;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+    .review-form button:hover {
+      background: #00a3a2;
+    }
+    /* Reviews List */
+    .reviews-list {
+      background: #1e1e1e;
+      border: 1px solid #00bdbb;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .review-item {
+      border-bottom: 1px solid #333;
+      padding: 15px 0;
+    }
+    .review-item:last-child {
+      border-bottom: none;
+    }
+    .review-stars {
+      color: #00bdbb;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+    .review-hp {
+      font-size: 0.95rem;
+      margin-bottom: 5px;
+      color: #ccc;
+    }
+    .review-comment {
+      font-size: 1rem;
+      color: #aaa;
+    }
+    /* Footer */
+    footer {
+      background: #1e1e1e;
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #00bdbb;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">YYCD_Performance</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Reviews</h1>
+
+  <div class="container">
+    <!-- Formulario para agregar review -->
+    <div class="review-form">
+      <form action="procesar_review.php" method="POST">
+        <label for="rating">Calificación (Estrellas):</label>
+        <div class="stars">
+          <input type="radio" id="star5" name="rating" value="5">
+          <label for="star5" class="star-label">&#9733;</label>
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4" class="star-label">&#9733;</label>
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3" class="star-label">&#9733;</label>
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2" class="star-label">&#9733;</label>
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1" class="star-label">&#9733;</label>
+        </div>
+
+        <label for="hp_before">HP Anteriores:</label>
+        <input type="number" id="hp_before" name="hp_before" placeholder="Ejemplo: 200" required>
+
+        <label for="hp_after">HP Resultado:</label>
+        <input type="number" id="hp_after" name="hp_after" placeholder="Ejemplo: 250" required>
+
+        <label for="comment">Comentario:</label>
+        <textarea id="comment" name="comment" placeholder="Cuenta tu experiencia..." required></textarea>
+
+        <button type="submit">Enviar Review</button>
+      </form>
+    </div>
+
+    <!-- Lista de reviews (ejemplo estático) -->
+    <div class="reviews-list">
+      <div class="review-item">
+        <div class="review-stars">★★★★☆</div>
+        <div class="review-hp">HP Anterior: 200 | HP Resultado: 250</div>
+        <div class="review-comment">"Excelente servicio, mi auto ganó potencia y estilo."</div>
+      </div>
+      <div class="review-item">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-hp">HP Anterior: 180 | HP Resultado: 230</div>
+        <div class="review-comment">"Muy satisfecho con el cambio, la calidad es inmejorable."</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 YYCD_Performance. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

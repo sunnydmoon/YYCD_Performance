@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto - YYCD_Performance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #121212;
+      font-family: 'Roboto', sans-serif;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Header */
+    header {
+      background: #1e1e1e;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #00bdbb;
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00bdbb;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      margin-left: 20px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav ul li:hover {
+      color: #00bdbb;
+    }
+    /* Main Title */
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 40px 0;
+      color: #00bdbb;
+    }
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    /* Location Section */
+    .location {
+      background: #1e1e1e;
+      border: 1px solid #00bdbb;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+    .location h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00bdbb;
+      margin-bottom: 10px;
+    }
+    .location p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+    .location img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    /* Team Section */
+    .team {
+      background: #1e1e1e;
+      border: 1px solid #00bdbb;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .team h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00bdbb;
+      margin-bottom: 20px;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .team-member {
+      background: #242424;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid #00bdbb;
+    }
+    .team-member h3 {
+      font-size: 1.2rem;
+      color: #00bdbb;
+      margin-bottom: 10px;
+    }
+    .team-member p {
+      font-size: 0.95rem;
+      margin-bottom: 5px;
+      color: #ccc;
+    }
+    /* Footer */
+    footer {
+      background: #1e1e1e;
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #00bdbb;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">YYCD_Performance</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <h1>Contacto</h1>
+  
+  <div class="container">
+    <!-- Ubicación -->
+    <div class="location">
+      <h2>Ubicación</h2>
+      <p>Nos encontramos en Heredia, Costa Rica, al lado de la Universidad Fidelitas.</p>
+      <img src="https://via.placeholder.com/600x300" alt="Mapa de Ubicación">
+    </div>
+    
+    <!-- Equipo de Trabajo -->
+    <div class="team">
+      <h2>Nuestro Equipo</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <h3>Andy Rojas</h3>
+          <p>Teléfono: 8989-9568</p>
+          <p>Rol: Piloto de pruebas</p>
+        </div>
+        <div class="team-member">
+          <h3>Daniela Murillo</h3>
+          <p>Teléfono: 7096-2126</p>
+          <p>Rol: Tuning de alto rendimiento</p>
+        </div>
+        <div class="team-member">
+          <h3>David Gonzalez</h3>
+          <p>Teléfono: 7215-3230</p>
+          <p>Rol: Especialista en electrónica</p>
+        </div>
+        <div class="team-member">
+          <h3>Fernando Carrillo</h3>
+          <p>Teléfono: 8692-7444</p>
+          <p>Rol: Atención al cliente</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 YYCD_Performance. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

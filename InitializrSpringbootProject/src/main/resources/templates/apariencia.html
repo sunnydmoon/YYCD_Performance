@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Apariencia - YYCD_Performance</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #121212;
+      font-family: 'Roboto', sans-serif;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Header */
+    header {
+      background: #1e1e1e;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #00bdbb;
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00bdbb;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      margin-left: 20px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav ul li:hover {
+      color: #00bdbb;
+    }
+    /* Main Title */
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 40px 0;
+      color: #00bdbb;
+    }
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    /* Service Description */
+    .service-description {
+      background: #1e1e1e;
+      border: 1px solid #00bdbb;
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+    .service-description p {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    /* Service List */
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .service-item {
+      background: #242424;
+      border: 1px solid #00bdbb;
+      border-radius: 8px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 189, 187, 0.3);
+    }
+    .service-item h3 {
+      font-size: 1.4rem;
+      color: #00bdbb;
+      margin-bottom: 10px;
+    }
+    .service-item p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #00bdbb;
+      text-align: right;
+    }
+    /* CTA Button */
+    .cta-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-button {
+      background: #00bdbb;
+      color: #121212;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background: #00a3a2;
+    }
+    /* Footer */
+    footer {
+      background: #1e1e1e;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 2px solid #00bdbb;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">YYCD_Performance</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Apariencia</h1>
+
+  <div class="container">
+    <div class="service-description">
+      <p>
+        El servicio de "Apariencia" en YYCD_Performance está diseñado para transformar y personalizar el aspecto exterior de tu vehículo. Con técnicas de pintura avanzada, acabados especiales y modificaciones estéticas, realzamos la personalidad y el estilo de cada auto, garantizando un acabado de alta calidad que marque la diferencia.
+      </p>
+    </div>
+
+    <div class="service-list">
+      <div class="service-item">
+        <h3>Pintura Personalizada</h3>
+        <p>
+          Aplicación de diseños y colores únicos, con técnicas de aerografía y pintura de precisión.
+        </p>
+        <div class="price">Desde ₡300,000</div>
+      </div>
+      <div class="service-item">
+        <h3>Acabados Especiales</h3>
+        <p>
+          Recubrimientos mate, brillantes o metálicos para un acabado exclusivo y duradero.
+        </p>
+        <div class="price">Desde ₡450,000</div>
+      </div>
+      <div class="service-item">
+        <h3>Modificaciones Estéticas</h3>
+        <p>
+          Instalación de molduras, spoilers y accesorios que realzan la imagen de tu vehículo.
+        </p>
+        <div class="price">Desde ₡350,000</div>
+      </div>
+      <div class="service-item">
+        <h3>Revestimientos y Protectores</h3>
+        <p>
+          Aplicación de vinilos, films protectores y otros revestimientos para mantener el look impecable.
+        </p>
+        <div class="price">Desde ₡250,000</div>
+      </div>
+    </div>
+    
+    <div class="cta-container">
+      <a href="nosotros.html"><button class="cta-button">Cotizar</button></a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 YYCD_Performance. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
