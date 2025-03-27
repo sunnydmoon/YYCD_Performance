@@ -22,6 +22,6 @@ public class ServiciosController {
     @GetMapping
     public String mostrarServicios(Model model) {
         model.addAttribute("servicios", servicioService.listarServicios());
-        return "servicios"; 
+        return "servicios/servicios"; 
     }
 }
