@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>YYCD Performance - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #121212;
+            font-family: 'Roboto', sans-serif;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        header {
+            background: #1e1e1e;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #00bdbb;
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: #00bdbb;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        nav ul li:hover {
+            color: #00bdbb;
+        }
+        .card {
+            background: #242424;
+            border: 1px solid #00bdbb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        .card-header {
+            background-color: #28a745;
+            color: white;
+            border-bottom: 1px solid #00bdbb;
+            border-radius: 8px 8px 0 0;
+            padding: 10px;
+        }
+        .card-footer {
+            text-align: center;
+        }
+        .btn {
+            background: #00bdbb;
+            color: #121212;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #00a3a2;
+        }
+        .alert-danger {
+            color: #ff4d4d;
+            background-color: #1e1e1e;
+            border: 1px solid #ff4d4d;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        footer {
+            background: #1e1e1e;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #00bdbb;
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">YYCD_Performance</div>
+        <nav>
+            <ul>
+                <li><a href="/index">Inicio</a></li>
+                <li><a href="/servicios">Servicios</a></li>
+                <li><a href="/reviews">Reviews</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+                <li><a href="/nosotros">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container my-5">
+        <div class="row align-items-center"> 
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-success">
+                        <h2 th:text="#{login.login}">Iniciar Sesión</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" th:action="@{/login}">
+                            <div class="form-group row my-3">
+                                <label class="col-md-5 my-auto" for="username">
+                                    <i class="fas fa-user-lock"></i> <span th:text="#{login.username}">Usuario</span>:
+                                </label>
+                                <div class="col-md-7 my-auto">
+                                    <input class="form-control" type="text" name="username" id="username" required/>
+                                </div>
+                            </div>
+                            <div class="form-group row my-3">
+                                <label class="col-md-5 my-auto" for="password">
+                                    <i class="fas fa-key"></i> <span th:text="#{login.password}">Contraseña</span>
+                                </label>
+                                <div class="col-md-7 my-auto">
+                                    <input class="form-control" type="password" name="password" id="password" required/>
+                                </div>
+                            </div>
+                            <div class="card-footer col text-center">
+                                <a th:href="@{/registro/nuevo}" class="btn">
+                                    <i class="fas fa-user-plus"></i> <span th:text="#{accion.registrar}">Registrarse</span>
+                                </a>
+                                <a th:href="@{/registro/recordar}" class="btn">
+                                    <i class="fas fa-envelope"></i> <span th:text="#{accion.recordar}">Recordar</span>
+                                </a>
+                                <button class="btn" type="submit">
+                                    <i class="fas fa-sign-in-alt"></i> <span th:text="#{login.login}">Iniciar Sesión</span>
+                                </button>
+                            </div>
+                        </form>                            
+                    </div>
+                </div>
+                <div th:if="${param.error != null}" class="alert alert-danger mt-3">
+                    <h3 th:text="#{error.login}">Error en el inicio de sesión</h3>
+                </div>
+            </div>
+        </div>           
+    </div>
+    <footer>
+        <p>&copy; 2025 YYCD_Performance. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

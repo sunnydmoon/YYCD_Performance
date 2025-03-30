@@ -1,4 +1,4 @@
-package YYCD_Performance.com;
+package YYCD.YYCD;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
