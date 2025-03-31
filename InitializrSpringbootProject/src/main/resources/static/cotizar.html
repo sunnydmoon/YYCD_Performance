@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cotizar - YYCD_Performance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #121212;
+      font-family: 'Roboto', sans-serif;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Header */
+    header {
+      background: #1e1e1e;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #00bdbb;
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00bdbb;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      margin-left: 20px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav ul li:hover {
+      color: #00bdbb;
+    }
+    /* Main Title */
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 40px 0;
+      color: #00bdbb;
+    }
+    /* Container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    /* Form Styles */
+    .form-container {
+      background: #242424;
+      border: 1px solid #00bdbb;
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #00bdbb;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      background: #333;
+      border: 1px solid #555;
+      border-radius: 4px;
+      color: #e0e0e0;
+      font-family: 'Roboto', sans-serif;
+    }
+    textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    .checkbox-group {
+      margin-top: 5px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .checkbox-item input {
+      width: auto;
+      margin-right: 10px;
+    }
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+    .form-row .form-group {
+      flex: 1;
+    }
+    .submit-btn {
+      background: #00bdbb;
+      color: #121212;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: block;
+      margin: 30px auto 0;
+      min-width: 200px;
+    }
+    .submit-btn:hover {
+      background: #00a3a2;
+    }
+    /* Info Section */
+    .info-section {
+      background: #242424;
+      border: 1px solid #00bdbb;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .info-section h3 {
+      color: #00bdbb;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    .info-section p {
+      margin-bottom: 10px;
+    }
+    /* Footer */
+    footer {
+      background: #1e1e1e;
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #00bdbb;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">YYCD_Performance</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="cotizar.html">Cotizar</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <h1>Solicita una Cotización</h1>
+  
+  <div class="container">
+    <div class="info-section">
+      <h3>¿Cómo funciona?</h3>
+      <p>Completa el formulario con los detalles de tu vehículo y los servicios que te interesan. Nuestro equipo analizará tus requerimientos y te enviará una cotización personalizada en un máximo de 48 horas.</p>
+      <p>También puedes especificar tu presupuesto aproximado para que podamos ofrecerte opciones que se ajusten a tus necesidades económicas.</p>
+    </div>
+    
+    <div class="form-container">
+      <form id="cotizacionForm" action="/procesar-cotizacion" method="post">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono">
+          </div>
+          <div class="form-group">
+            <label for="presupuesto">Presupuesto aproximado (Colones)</label>
+            <input type="number" id="presupuesto" name="presupuesto" placeholder="Opcional">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="marca">Marca del vehículo</label>
+          <input type="text" id="marca" name="marca" required>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modelo">Modelo</label>
+            <input type="text" id="modelo" name="modelo" required>
+          </div>
+          <div class="form-group">
+            <label for="anio">Año</label>
+            <input type="number" id="anio" name="anio" min="1900" max="2030" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Servicios que te interesan</label>
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="apariencia" name="servicios" value="apariencia">
+              <label for="apariencia">Apariencia (Pintura y modificaciones)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="equipamiento" name="servicios" value="equipamiento">
+              <label for="equipamiento">Equipamiento (Accesorios y componentes)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="iluminacion" name="servicios" value="iluminacion">
+              <label for="iluminacion">Iluminación (Sistemas LED y ópticas)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="turbinas" name="servicios" value="turbinas">
+              <label for="turbinas">Turbinas (Sistemas de inducción forzada)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="otro" name="servicios" value="otro">
+              <label for="otro">Otro (especificar en detalles)</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="detalles">Detalles adicionales</label>
+          <textarea id="detalles" name="detalles" placeholder="Describe lo que buscas para tu vehículo con el mayor detalle posible..."></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Solicitar Cotización</button>
+      </form>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 YYCD_Performance. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
