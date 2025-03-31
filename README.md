@@ -1,2 +1,2 @@
 # YYCD_Performance
-Esto es para los avances de mi universidad
+Este es el repositorio del proyecto de Desarrollo web y patrones
