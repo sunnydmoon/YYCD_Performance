@@ -1,47 +1,76 @@
-
 package YYCD_YYCD.domain;
-import jakarta.persistence.*;
-import lombok.Data;
-@Entity
-@Table(name = "cotizaciones")
+
+import jakarta.validation.constraints.*;
+
 public class Cotizacion {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String modeloAuto;
-    private String servicioRequerido; 
-    private String contacto;
 
-    public Long getId() {
-        return id;
+    private Long idCotizacion;
+
+    @NotBlank(message = "El nombre es obligatorio")
+    private String nombre;
+
+    @NotBlank(message = "El correo electrónico es obligatorio")
+    @Email(message = "Formato de correo electrónico inválido")
+    private String email;
+
+    @NotBlank(message = "La marca del vehículo es obligatoria")
+    private String marcaVehiculo;
+
+    @NotBlank(message = "El modelo del vehículo es obligatorio")
+    private String modeloVehiculo;
+
+    @NotNull(message = "El año del vehículo es obligatorio")
+    @Min(value = 1900, message = "Año del vehículo inválido")
+    @Max(value = 2030, message = "Año del vehículo inválido")
+    private Integer anio;
+
+    // Getters y setters
+
+    public Long getIdCotizacion() {
+        return idCotizacion;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdCotizacion(Long idCotizacion) {
+        this.idCotizacion = idCotizacion;
     }
 
-    public String getModeloAuto() {
-        return modeloAuto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setModeloAuto(String modeloAuto) {
-        this.modeloAuto = modeloAuto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getServicioRequerido() {
-        return servicioRequerido;
+    public String getEmail() {
+        return email;
     }
 
-    public void setServicioRequerido(String servicioRequerido) {
-        this.servicioRequerido = servicioRequerido;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getContacto() {
-        return contacto;
+    public String getMarcaVehiculo() {
+        return marcaVehiculo;
     }
 
-    public void setContacto(String contacto) {
-        this.contacto = contacto;
+    public void setMarcaVehiculo(String marcaVehiculo) {
+        this.marcaVehiculo = marcaVehiculo;
     }
-    
+
+    public String getModeloVehiculo() {
+        return modeloVehiculo;
+    }
+
+    public void setModeloVehiculo(String modeloVehiculo) {
+        this.modeloVehiculo = modeloVehiculo;
+    }
+
+    public Integer getAnio() {
+        return anio;
+    }
+
+    public void setAnio(Integer anio) {
+        this.anio = anio;
+    }
 }
