@@ -1,47 +1,47 @@
 package YYCD_YYCD.domain;
 
-import jakarta.persistence.*;
-import lombok.Data;
+import jakarta.persistence.*;               // import JPA
 
-@Entity
-@Table(name = "review")
+@Entity                                      // marca clase como entidad
+@Table(name = "review")                      // asocia con tabla "review"
 public class Review {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String cliente;
-    private String comentario;
-    private int puntuacion;
+    @Id                                      // clave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // autogenera valor
+    private Long id;                         // id del review
 
-    public Long getId() {
+    private String cliente;                  // nombre del cliente
+    private String comentario;               // texto del comentario
+    private int puntuacion;                  // puntuación del review
+
+    public Long getId() {                    // obtiene el id
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id) {             // asigna el id
         this.id = id;
     }
 
-    public String getCliente() {
+    public String getCliente() {             // obtiene cliente
         return cliente;
     }
 
-    public void setCliente(String cliente) {
+    public void setCliente(String cliente) { // asigna cliente
         this.cliente = cliente;
     }
 
-    public String getComentario() {
+    public String getComentario() {          // obtiene comentario
         return comentario;
     }
 
-    public void setComentario(String comentario) {
+    public void setComentario(String comentario) { // asigna comentario
         this.comentario = comentario;
     }
 
-    public int getPuntuacion() {
+    public int getPuntuacion() {             // obtiene puntuación
         return puntuacion;
     }
 
-    public void setPuntuacion(int puntuacion) {
+    public void setPuntuacion(int puntuacion) { // asigna puntuación
         this.puntuacion = puntuacion;
     }
 }

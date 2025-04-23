@@ -1,48 +1,48 @@
 package YYCD_YYCD.domain;
 
-import jakarta.persistence.*;
-import lombok.Data;
+import jakarta.persistence.*;               // anotaciones JPA
 
-@Entity
-@Table(name = "contactos")
+@Entity                                      // marca clase como entidad
+@Table(name = "contactos")                   // asocia con tabla "contactos"
 public class Contacto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nombre;
-    private String email;
-    private String mensaje;
 
-    public Long getId() {
+    @Id                                      // clave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // genera valor automático
+    private Long id;                         // ID del contacto
+
+    private String nombre;                   // nombre del contacto
+    private String email;                    // correo del contacto
+    private String mensaje;                  // mensaje enviado
+
+    public Long getId() {                    // obtiene el ID
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id) {             // asigna el ID
         this.id = id;
     }
 
-    public String getNombre() {
+    public String getNombre() {              // obtiene el nombre
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) {   // asigna el nombre
         this.nombre = nombre;
     }
 
-    public String getEmail() {
+    public String getEmail() {               // obtiene el email
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) {     // asigna el email
         this.email = email;
     }
 
-    public String getMensaje() {
+    public String getMensaje() {             // obtiene el mensaje
         return mensaje;
     }
 
-    public void setMensaje(String mensaje) {
+    public void setMensaje(String mensaje) { // asigna el mensaje
         this.mensaje = mensaje;
     }
-    
 }

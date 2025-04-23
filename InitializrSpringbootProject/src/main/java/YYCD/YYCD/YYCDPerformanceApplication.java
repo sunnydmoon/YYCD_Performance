@@ -1,12 +1,13 @@
 package YYCD.YYCD;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringApplication;               // Importa clase para iniciar Spring Boot
+import org.springframework.boot.autoconfigure.SpringBootApplication; // Importa anotación para configurar Spring Boot
 
-@SpringBootApplication
+@SpringBootApplication                   // Marca esta clase como aplicación Spring Boot
 public class YYCDPerformanceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(YYCDPerformanceApplication.class, args);
-	}
+    public static void main(String[] args) { 
+        // Arranca la aplicación Spring Boot
+        SpringApplication.run(YYCDPerformanceApplication.class, args);
+    }
 }
