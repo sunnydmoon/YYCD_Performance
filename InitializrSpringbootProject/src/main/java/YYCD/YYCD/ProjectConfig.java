@@ -21,98 +21,95 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @Configuration
 public class ProjectConfig implements WebMvcConfigurer {
 
-    // Crea y configura el locale por sesión
     @Bean
     public LocaleResolver localeResolver() {
-        var slr = new SessionLocaleResolver();             // Usa sesión para locale
-        slr.setDefaultLocale(Locale.getDefault());          // Fija idioma por defecto
-        slr.setLocaleAttributeName("session.current.locale");    // Nombre atributo locale
-        slr.setTimeZoneAttributeName("session.current.timezone"); // Nombre atributo zona
+        var slr = new SessionLocaleResolver();
+        slr.setDefaultLocale(Locale.getDefault());
+        slr.setLocaleAttributeName("session.current.locale");
+        slr.setTimeZoneAttributeName("session.current.timezone");
         return slr;
     }
 
-    // Crea interceptor que lee parámetro "lang"
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
-        var lci = new LocaleChangeInterceptor();           // Intercepta cambio de idioma
-        lci.setParamName("lang");                          // Parámetro para cambiar
+        var lci = new LocaleChangeInterceptor();
+        lci.setParamName("lang");
         return lci;
     }
 
-    // Registra el interceptor de idioma
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(localeChangeInterceptor()); // Añade interceptor a la cadena
+        registry.addInterceptor(localeChangeInterceptor());
     }
 
-    // Carga archivos de mensajes para internacionalización
     @Bean("messageSource")
     public MessageSource messageSource() {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasenames("messages");             // Nombre base de archivos
-        messageSource.setDefaultEncoding("UTF-8");          // Codificación de archivos
-        return messageSource;
+        var ms = new ResourceBundleMessageSource();
+        ms.setBasenames("messages");
+        ms.setDefaultEncoding("UTF-8");
+        return ms;
     }
 
-    // Asigna rutas simples a vistas sin lógica adicional
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");                // Home
-        registry.addViewController("/index").setViewName("index");          // Index
-        registry.addViewController("/login").setViewName("login");          // Login
-        registry.addViewController("/registro/nuevo").setViewName("registro/nuevo"); // Registro
-        registry.addViewController("/servicios").setViewName("servicios/servicios"); // Servicios
-        registry.addViewController("/reviews").setViewName("review/review");         // Reviews
-        registry.addViewController("/nosotros").setViewName("nosotros/nosotros");    // Nosotros
-        registry.addViewController("/contacto").setViewName("contacto/contacto");    // Contacto
+        // Enlaza tus URLs directamente a los HTML estáticos en /static
+        registry.addViewController("/").setViewName("forward:/index.html");
+        registry.addViewController("/index").setViewName("forward:/index.html");
+        registry.addViewController("/login").setViewName("forward:/LogIn.html");
+        registry.addViewController("/registro/nuevo").setViewName("forward:/registro.html");
+        registry.addViewController("/servicios").setViewName("forward:/servicios.html");
+        registry.addViewController("/reviews").setViewName("forward:/review.html");
+        registry.addViewController("/nosotros").setViewName("forward:/nosotros.html");
+        registry.addViewController("/contacto").setViewName("forward:/contacto.html");
     }
 
-    // Define reglas de seguridad y acceso HTTP
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeHttpRequests((request) -> request
+            .authorizeHttpRequests(auth -> auth
+                // permite acceso a tus páginas estáticas y al formulario de login
                 .requestMatchers(
-                    "/", "/index", "/errores/**",
-                    "/js/**", "/webjars/**", "/registro/**",
-                    "/servicios/**", "/reviews/**", "/nosotros/**", "/contacto/**"
-                ).permitAll()                             // Rutas públicas
+                    "/", "/index", "/login", "/LogIn.html", "/perform_login",
+                    "/registro/**", "/servicios/**", "/reviews/**",
+                    "/nosotros/**", "/contacto/**",
+                    "/js/**", "/static.img/**"
+                ).permitAll()
+                // resto de reglas de seguridad
                 .requestMatchers(
                     "/usuario/nuevo", "/usuario/guardar",
                     "/usuario/modificar/**", "/usuario/eliminar/**",
                     "/reportes/**"
-                ).hasRole("ADMIN")                        // Solo ADMIN
-                .requestMatchers("/usuario/listado")
-                    .hasAnyRole("ADMIN", "VENDEDOR")      // ADMIN o VENDEDOR
-                .requestMatchers("/facturar/carrito")
-                    .hasRole("USER")                      // Solo USER
-                .anyRequest().authenticated()             // Resto requiere login
+                ).hasRole("ADMIN")
+                .requestMatchers("/usuario/listado").hasAnyRole("ADMIN", "VENDEDOR")
+                .requestMatchers("/facturar/carrito").hasRole("USER")
+                .anyRequest().authenticated()
             )
-            .formLogin((form) -> form
-                .loginPage("/login").permitAll()         // Página de login
+            .formLogin(form -> form
+                .loginPage("/login")
+                .loginProcessingUrl("/perform_login")
+                .defaultSuccessUrl("/index", true)
+                .failureUrl("/login?error")
+                .permitAll()
             )
-            .logout((logout) -> logout.permitAll());    // Permite logout
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/index")
+                .permitAll()
+            );
         return http.build();
     }
 
-    // Usuarios en memoria (temporal hasta usar BD)
     @Bean
     public UserDetailsService users() {
         UserDetails admin = User.builder()
-            .username("juan")                         // Usuario admin
-            .password("{noop}123")                    // Contraseña sin encriptar
-            .roles("USER", "VENDEDOR", "ADMIN")       // Roles completos
-            .build();
+            .username("juan").password("{noop}123")
+            .roles("USER","VENDEDOR","ADMIN").build();
         UserDetails sales = User.builder()
-            .username("rebeca")                       // Usuario vendedor
-            .password("{noop}456")
-            .roles("USER", "VENDEDOR")
-            .build();
-        UserDetails user = User.builder()
-            .username("david")                        // Usuario normal
-            .password("{noop}123")
-            .roles("USER")
-            .build();
-        return new InMemoryUserDetailsManager(user, sales, admin); // Gestiona usuarios
+            .username("rebeca").password("{noop}456")
+            .roles("USER","VENDEDOR").build();
+        UserDetails user  = User.builder()
+            .username("david").password("{noop}123")
+            .roles("USER").build();
+        return new InMemoryUserDetailsManager(user, sales, admin);
     }
 }
