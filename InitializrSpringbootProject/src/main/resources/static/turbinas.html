@@ -55,7 +55,7 @@
       color: #00bdbb;
     }
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -74,6 +74,7 @@
       padding: 30px;
       border-radius: 10px;
       border-left: 4px solid #00bdbb;
+      margin-bottom: 40px;
     }
     .description h2 {
       color: #00bdbb;
@@ -82,6 +83,31 @@
     .description p {
       font-size: 1.1rem;
       margin-bottom: 15px;
+    }
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #00bdbb;
+      text-align: center;
+    }
+    .product h3 {
+      color: #00bdbb;
+      margin-bottom: 10px;
+    }
+    .product p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+    .price {
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
     footer {
       background: #1e1e1e;
@@ -117,8 +143,37 @@
     <div class="description">
       <h2>Potencia al máximo nivel</h2>
       <p>En <strong>YYCD_Performance</strong> llevamos el rendimiento de tu motor al siguiente nivel con nuestros sistemas de turbinas de alta eficiencia. Nuestros kits de inducción forzada están diseñados para brindar una mayor potencia, mejor respuesta y una experiencia de conducción sin igual.</p>
-      <p>Instalamos turbocompresores modernos y componentes complementarios como intercoolers, válvulas de descarga y sistemas de gestión electrónica adaptados a tu vehículo. Todo esto con la máxima seguridad y precisión técnica.</p>
+      <p>Instalamos turbocompresores modernos y componentes complementarios como intercoolers, válvulas de descarga y sistemas de gestión electrónica adaptados a tu vehículo.</p>
       <p>Ya sea que busques mejorar el desempeño en la pista o simplemente disfrutar de un manejo más emocionante, tenemos la solución ideal para tu auto.</p>
+    </div>
+
+    <h2 style="color: #00bdbb; margin-bottom: 20px;">Productos y Precios</h2>
+    <div class="product-list">
+      <div class="product">
+        <h3>Turbo Kit Stage 1</h3>
+        <p>Ideal para mejoras moderadas de potencia. Incluye instalación.</p>
+        <div class="price">₡25.000</div>
+      </div>
+      <div class="product">
+        <h3>Turbo Kit Stage 2</h3>
+        <p>Mayor presión y eficiencia para autos deportivos.</p>
+        <div class="price">₡50.000</div>
+      </div>
+      <div class="product">
+        <h3>Intercooler de Alto Flujo</h3>
+        <p>Optimiza la refrigeración del sistema turbo.</p>
+        <div class="price">₡30.000</div>
+      </div>
+      <div class="product">
+        <h3>Válvula de descarga (Blow-Off)</h3>
+        <p>Reduce el retardo del turbo y mejora la respuesta.</p>
+        <div class="price">₡25.000</div>
+      </div>
+      <div class="product">
+        <h3>ECU Programada</h3>
+        <p>Mapeo personalizado para rendimiento óptimo.</p>
+        <div class="price">₡25.000</div>
+      </div>
     </div>
   </div>
 
@@ -127,4 +182,5 @@
   </footer>
 </body>
 </html>
+
 
