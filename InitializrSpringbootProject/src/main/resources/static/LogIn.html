@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
 <head>
     <meta charset="UTF-8"/>
     <title>YYCD Performance - Login</title>
@@ -63,6 +63,7 @@
         }
         .card-footer {
             text-align: center;
+            margin-top: 20px;
         }
         .btn {
             background: #00bdbb;
@@ -72,6 +73,8 @@
             font-weight: bold;
             transition: background 0.3s;
             margin: 5px;
+            border: none;
+            cursor: pointer;
         }
         .btn:hover {
             background: #00a3a2;
@@ -83,6 +86,7 @@
             border-radius: 8px;
             padding: 10px;
             text-align: center;
+            margin-top: 15px;
         }
         footer {
             background: #1e1e1e;
@@ -93,6 +97,21 @@
             color: #aaa;
             margin-top: 40px;
         }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #00bdbb;
+            border-radius: 4px;
+            background: #121212;
+            color: #e0e0e0;
+        }
     </style>
 </head>
 <body>
@@ -100,62 +119,53 @@
         <div class="logo">YYCD_Performance</div>
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="review.html">Reviews</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="/index">Inicio</a></li>
+                <li><a href="/servicios">Servicios</a></li>
+                <li><a href="/reviews">Reviews</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+                <li><a href="/nosotros">Nosotros</a></li>
             </ul>
         </nav>
     </header>
+
     <div class="container my-5">
-        <div class="row align-items-center"> 
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header bg-success">
-                        <h2 th:text="#{login.login}">Iniciar Sesión</h2>
+        <div class="card">
+            <div class="card-header">
+                <h2>Iniciar Sesión</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/perform_login">
+                    <div class="form-group">
+                        <label for="username">Usuario:</label>
+                        <input type="text" name="username" id="username" required />
                     </div>
-                    <div class="card-body">
-                        <form method="POST" th:action="@{/perform_login}">
-                            <div class="form-group row my-3">
-                                <label class="col-md-5 my-auto" for="username">
-                                    <i class="fas fa-user-lock"></i> <span th:text="#{login.username}">Usuario</span>:
-                                </label>
-                                <div class="col-md-7 my-auto">
-                                    <input class="form-control" type="text" name="username" id="username" required/>
-                                </div>
-                            </div>
-                            <div class="form-group row my-3">
-                                <label class="col-md-5 my-auto" for="password">
-                                    <i class="fas fa-key"></i> <span th:text="#{login.password}">Contraseña</span>
-                                </label>
-                                <div class="col-md-7 my-auto">
-                                    <input class="form-control" type="password" name="password" id="password" required/>
-                                </div>
-                            </div>
-                            <div class="card-footer col text-center">
-                                <a th:href="@{/registro/nuevo}" class="btn">
-                                    <i class="fas fa-user-plus"></i> <span th:text="#{accion.registrar}">Registrarse</span>
-                                </a>
-                                <a th:href="@{/registro/recordar}" class="btn">
-                                    <i class="fas fa-envelope"></i> <span th:text="#{accion.recordar}">Recordar</span>
-                                </a>
-                                <button class="btn" type="submit">
-                                    <i class="fas fa-sign-in-alt"></i> <span th:text="#{login.login}">Iniciar Sesión</span>
-                                </button>
-                            </div>
-                        </form>                            
+                    <div class="form-group">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" name="password" id="password" required />
                     </div>
-                </div>
-                <div th:if="${param.error != null}" class="alert alert-danger mt-3">
-                    <h3 th:text="#{error.login}">Error en el inicio de sesión</h3>
+                    <div class="card-footer">
+                        <a href="/registro/nuevo" class="btn">Registrarse</a>
+                        <a href="/registro/recordar" class="btn">Recordar</a>
+                        <button type="submit" class="btn">Iniciar Sesión</button>
+                    </div>
+                </form>
+                <!-- Este mensaje solo aparecerá si hay error en la URL: /login?error -->
+                <div class="alert-danger" style="display: none;" id="loginError">
+                    Error en el inicio de sesión
                 </div>
             </div>
-        </div>           
+        </div>
     </div>
+
     <footer>
         <p>&copy; 2025 YYCD_Performance. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        // Muestra el mensaje de error si existe parámetro "error" en la URL
+        if (window.location.search.includes('error')) {
+            document.getElementById('loginError').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
